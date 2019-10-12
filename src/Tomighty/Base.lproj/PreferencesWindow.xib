@@ -44,7 +44,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-RF-ya6">
-                                            <rect key="frame" x="18" y="155" width="311" height="16"/>
+                                            <rect key="frame" x="99" y="155" width="150" height="16"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Show time in status bar" id="MTr-H3-fc3">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -68,20 +68,15 @@
                                                 <action selector="save_status_icon_time_format:" target="-2" id="oAt-Ih-RAe"/>
                                             </connections>
                                         </popUpButton>
-                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBq-aZ-suX">
-                                            <rect key="frame" x="93" y="126" width="162" height="21"/>
-                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="centerX" secondItem="lAW-RF-ya6" secondAttribute="centerX" id="12N-ca-lmz"/>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="leading" secondItem="AB6-cq-4zH" secondAttribute="leading" id="9PS-gm-k6R"/>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="trailing" secondItem="AB6-cq-4zH" secondAttribute="trailing" id="G8J-wY-3uY"/>
                                         <constraint firstItem="lAW-RF-ya6" firstAttribute="top" secondItem="r56-uS-b66" secondAttribute="top" constant="20" symbolic="YES" id="PSv-Kp-I5F"/>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="top" secondItem="AB6-cq-4zH" secondAttribute="top" id="QbA-3d-fPV"/>
-                                        <constraint firstItem="lAW-RF-ya6" firstAttribute="leading" secondItem="r56-uS-b66" secondAttribute="leading" constant="20" symbolic="YES" id="aGU-4M-5R2"/>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="bottom" secondItem="AB6-cq-4zH" secondAttribute="bottom" id="eeK-dh-8yq"/>
-                                        <constraint firstItem="YBq-aZ-suX" firstAttribute="top" secondItem="lAW-RF-ya6" secondAttribute="bottom" constant="8" symbolic="YES" id="jHb-ga-5wC"/>
+                                        <constraint firstItem="AB6-cq-4zH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r56-uS-b66" secondAttribute="leading" constant="20" symbolic="YES" id="Ui0-W2-CQ2"/>
+                                        <constraint firstItem="lAW-RF-ya6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r56-uS-b66" secondAttribute="leading" constant="20" symbolic="YES" id="aGU-4M-5R2"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AB6-cq-4zH" secondAttribute="trailing" constant="20" symbolic="YES" id="mcn-8g-5yt"/>
+                                        <constraint firstItem="AB6-cq-4zH" firstAttribute="centerX" secondItem="r56-uS-b66" secondAttribute="centerX" id="oBw-Ub-fTJ"/>
                                         <constraint firstItem="lAW-RF-ya6" firstAttribute="centerX" secondItem="r56-uS-b66" secondAttribute="centerX" id="vs9-tN-FE7"/>
+                                        <constraint firstItem="AB6-cq-4zH" firstAttribute="top" secondItem="lAW-RF-ya6" secondAttribute="bottom" constant="8" symbolic="YES" id="y6S-CO-ffV"/>
                                     </constraints>
                                 </view>
                             </tabViewItem>
