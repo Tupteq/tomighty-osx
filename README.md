@@ -6,6 +6,15 @@ Available for download at http://www.tomighty.org
 This repository contains the source code for the native OSX version of Tomighty.
 If you are looking for the source code of the multiplatform (Java) version, go to https://github.com/ccidral/tomighty
 
+This Fork
+=========
+Changes made in this fork:
+
+* Fixed compilation error (related to access `_cell` member).
+* Updated XCode project.
+* Added pause/resume functionality (functional, but work is still in progress).
+* Minor code simplifications (side effect of pause/resume feature).
+
 Architecture
 ============
 
