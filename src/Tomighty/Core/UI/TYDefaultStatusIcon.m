@@ -12,6 +12,7 @@ NSString * const ICON_STATUS_POMODORO = @"icon-status-pomodoro";
 NSString * const ICON_STATUS_SHORT_BREAK = @"icon-status-short-break";
 NSString * const ICON_STATUS_LONG_BREAK = @"icon-status-long-break";
 NSString * const ICON_STATUS_ALTERNATE = @"icon-status-alternate";
+NSString * const ICON_STATUS_PAUSE = @"icon-status-pause";
 
 @implementation TYDefaultStatusIcon
 {

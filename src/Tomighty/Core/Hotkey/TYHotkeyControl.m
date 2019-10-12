@@ -50,7 +50,7 @@ IB_DESIGNABLE
 {
     if(hotkey.valid) {
         _key = hotkey;
-        [_cell setHotkey:_key];
+        [self.cell setHotkey:_key];
         [self sendAction:self.action to:self.target];
     }
 }

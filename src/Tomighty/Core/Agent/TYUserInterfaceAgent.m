@@ -41,7 +41,7 @@
 {
     [eventBus subscribeTo:APP_INIT subscriber:^(id eventData) {
         [ui switchToIdleState];
-        [ui updateRemainingTime:0 withMode:TYAppUIRemainingTimeModeDefault];
+        [ui updateRemainingTime:0 orUseLastTime:true];
         [ui setStatusIconTextFormat:(TYAppUIStatusIconTextFormat) [preferences getInt:PREF_STATUS_ICON_TIME_FORMAT]];
         [ui updatePomodoroCount:0];
     }];
@@ -54,7 +54,11 @@
     [eventBus subscribeTo:TIMER_STOP subscriber:^(id eventData) {
         [ui switchToIdleState];
     }];
-    
+
+    [eventBus subscribeTo:TIMER_PAUSE subscriber:^(id eventData) {
+        [ui switchToPauseState];
+    }];
+
     [eventBus subscribeTo:SHORT_BREAK_START subscriber:^(id eventData) {
         [ui switchToShortBreakState];
         [self dispatchNewNotification:@"Short break started"];
@@ -66,11 +70,11 @@
     }];
     
     [eventBus subscribeTo:TIMER_TICK subscriber:^(id <TYTimerContext> timerContext) {
-        [ui updateRemainingTime:[timerContext getRemainingSeconds] withMode:TYAppUIRemainingTimeModeDefault];
+        [ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
     }];
 
     [eventBus subscribeTo:TIMER_START subscriber:^(id <TYTimerContext> timerContext) {
-        [ui updateRemainingTime:[timerContext getRemainingSeconds] withMode:TYAppUIRemainingTimeModeStart];
+        [ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
     }];
     
     [eventBus subscribeTo:POMODORO_COUNT_CHANGE subscriber:^(NSNumber *pomodoroCount) {

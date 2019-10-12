@@ -78,6 +78,12 @@
     NSImage *stopIcon = [imageLoader loadIcon:@"icon-stop-timer"];
     [stopIcon setTemplate:TRUE];
     [self.stopTimerMenuItem setImage:stopIcon];
+    NSImage *pauseIcon = [imageLoader loadIcon:@"icon-pause"];
+    [pauseIcon setTemplate:TRUE];
+    [self.pauseMenuItem setImage:pauseIcon];
+    NSImage *resumeIcon = [imageLoader loadIcon:@"icon-resume"];
+    [resumeIcon setTemplate:TRUE];
+    [self.resumeMenuItem setImage:resumeIcon];
     [self.startPomodoroMenuItem setImage:[imageLoader loadIcon:@"icon-start-pomodoro"]];
     [self.startShortBreakMenuItem setImage:[imageLoader loadIcon:@"icon-start-short-break"]];
     [self.startLongBreakMenuItem setImage:[imageLoader loadIcon:@"icon-start-long-break"]];
@@ -103,6 +109,16 @@
     [tomighty stopTimer];
 }
 
+- (IBAction)pause:(id)sender
+{
+    [tomighty pause];
+}
+
+- (IBAction)resume:(id)sender
+{
+    [tomighty resume];
+}
+
 - (IBAction)resetPomodoroCount:(id)sender
 {
     [tomighty resetPomodoroCount];
@@ -121,6 +137,18 @@
 - (void)enableStopTimerItem:(BOOL)enable
 {
     [self.stopTimerMenuItem setEnabled:enable];
+}
+
+- (void)enablePauseItem:(BOOL)enable hidden:(BOOL)hidden
+{
+    [self.pauseMenuItem setEnabled:enable];
+    [self.pauseMenuItem setHidden:hidden];
+}
+
+- (void)enableResumeItem:(BOOL)enable hidden:(BOOL)hidden
+{
+    [self.resumeMenuItem setEnabled:enable];
+    [self.resumeMenuItem setHidden:hidden];
 }
 
 - (void)enableTimerMenuItem:(NSMenuItem *)menuItem enable:(BOOL)enable

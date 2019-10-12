@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger, TYEventType)
     TIMER_START               = 1,
     TIMER_TICK                = 2,
     TIMER_STOP                = 3,
+    TIMER_PAUSE               = 14,
+    TIMER_RESUME              = 15,
     TIMER_ABORT               = 4,
     TIMER_GOES_OFF            = 5,
     

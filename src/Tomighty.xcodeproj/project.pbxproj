@@ -59,6 +59,9 @@
 		30CFBF1218BD76F7000266B4 /* TYMockSystemTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 30CFBF1118BD76F7000266B4 /* TYMockSystemTimer.m */; };
 		30DB72F618CD4FC800293915 /* TYTomightyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB72F518CD4FC800293915 /* TYTomightyTests.m */; };
 		30DB72FA18CD54D200293915 /* TYDefaultTomighty.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DB72F918CD54D200293915 /* TYDefaultTomighty.m */; };
+		44D8D302234D3E1100228CCF /* icon-pause.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 44D8D301234D3E1100228CCF /* icon-pause.tiff */; };
+		44D8D304234D424D00228CCF /* icon-status-pause.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 44D8D303234D424D00228CCF /* icon-status-pause.tiff */; };
+		44D8D306234E26D200228CCF /* icon-resume.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 44D8D305234E26D200228CCF /* icon-resume.tiff */; };
 		88742E1C44894488BB0F167C /* libPods-TomightyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1A27968CA44FEFB1DA3DB3 /* libPods-TomightyTests.a */; };
 		C69D84451D7971A000B24643 /* TYHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = C69D84441D7971A000B24643 /* TYHotkey.m */; };
 		C69D84481D7971B900B24643 /* TYHotkeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C69D84471D7971B900B24643 /* TYHotkeyTests.m */; };
@@ -179,6 +182,9 @@
 		30DB72F718CD54C000293915 /* TYTomighty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TYTomighty.h; path = Core/TYTomighty.h; sourceTree = "<group>"; };
 		30DB72F818CD54D200293915 /* TYDefaultTomighty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TYDefaultTomighty.h; path = Core/TYDefaultTomighty.h; sourceTree = "<group>"; };
 		30DB72F918CD54D200293915 /* TYDefaultTomighty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TYDefaultTomighty.m; path = Core/TYDefaultTomighty.m; sourceTree = "<group>"; };
+		44D8D301234D3E1100228CCF /* icon-pause.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "icon-pause.tiff"; path = "Icons/icon-pause.tiff"; sourceTree = SOURCE_ROOT; };
+		44D8D303234D424D00228CCF /* icon-status-pause.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "icon-status-pause.tiff"; path = "Icons/icon-status-pause.tiff"; sourceTree = SOURCE_ROOT; };
+		44D8D305234E26D200228CCF /* icon-resume.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "icon-resume.tiff"; path = "Icons/icon-resume.tiff"; sourceTree = SOURCE_ROOT; };
 		4E46E0E26D22DDAFC599CB28 /* Pods-TomightyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomightyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TomightyTests/Pods-TomightyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C134136195EF68DBA17C261 /* Pods-TomightyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomightyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TomightyTests/Pods-TomightyTests.release.xcconfig"; sourceTree = "<group>"; };
 		C69D84431D7971A000B24643 /* TYHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TYHotkey.h; path = Core/Hotkey/TYHotkey.h; sourceTree = "<group>"; };
@@ -417,6 +423,9 @@
 		305D161A18CD12FA00CE6A34 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				44D8D305234E26D200228CCF /* icon-resume.tiff */,
+				44D8D303234D424D00228CCF /* icon-status-pause.tiff */,
+				44D8D301234D3E1100228CCF /* icon-pause.tiff */,
 				30C383BF18CFC9FC00FABFFE /* icon-clock.tiff */,
 				30C383C018CFC9FC00FABFFE /* icon-start-long-break.tiff */,
 				30C383C118CFC9FC00FABFFE /* icon-start-pomodoro.tiff */,
@@ -588,7 +597,7 @@
 			};
 			buildConfigurationList = 304AF80D18BD04BE00A2EA74 /* Build configuration list for PBXProject "Tomighty" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -620,10 +629,13 @@
 				30C383CC18CFC9FC00FABFFE /* icon-start-short-break.tiff in Resources */,
 				30C383D118CFC9FC00FABFFE /* icon-status-alternate.tiff in Resources */,
 				30C383D218CFC9FC00FABFFE /* icon-stop-timer.tiff in Resources */,
+				44D8D306234E26D200228CCF /* icon-resume.tiff in Resources */,
 				30C383CD18CFC9FC00FABFFE /* icon-status-long-break.tiff in Resources */,
 				30C383C918CFC9FC00FABFFE /* icon-clock.tiff in Resources */,
 				30C383CB18CFC9FC00FABFFE /* icon-start-pomodoro.tiff in Resources */,
 				30C383D018CFC9FC00FABFFE /* icon-status-short-break.tiff in Resources */,
+				44D8D302234D3E1100228CCF /* icon-pause.tiff in Resources */,
+				44D8D304234D424D00228CCF /* icon-status-pause.tiff in Resources */,
 				30C383CA18CFC9FC00FABFFE /* icon-start-long-break.tiff in Resources */,
 				300AE29218D1444400264309 /* PreferencesWindow.xib in Resources */,
 				304AF82618BD04BE00A2EA74 /* Credits.rtf in Resources */,
@@ -829,7 +841,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -866,7 +878,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				SDKROOT = macosx;
 			};
 			name = Release;

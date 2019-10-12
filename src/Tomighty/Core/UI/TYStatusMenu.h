@@ -10,6 +10,8 @@
 @protocol TYStatusMenu <NSObject>
 
 - (void)enableStopTimerItem:(BOOL)enable;
+- (void)enablePauseItem:(BOOL)enable hidden:(BOOL)hidden;
+- (void)enableResumeItem:(BOOL)enable hidden:(BOOL)hidden;
 - (void)enableStartPomodoroItem:(BOOL)enable;
 - (void)enableStartShortBreakItem:(BOOL)enable;
 - (void)enableStartLongBreakItem:(BOOL)enable;

@@ -9,6 +9,7 @@
 
 extern NSString * const ICON_STATUS_IDLE;
 extern NSString * const ICON_STATUS_POMODORO;
+extern NSString * const ICON_STATUS_PAUSE;
 extern NSString * const ICON_STATUS_SHORT_BREAK;
 extern NSString * const ICON_STATUS_LONG_BREAK;
 

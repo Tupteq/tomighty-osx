@@ -13,5 +13,7 @@
 
 - (void)start:(id<TYTimerContext>)context;
 - (void)stop;
+- (void)pause;
+- (void)resume;
 
 @end

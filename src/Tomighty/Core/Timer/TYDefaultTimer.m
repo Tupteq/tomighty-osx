@@ -63,4 +63,16 @@
     }
 }
 
+- (void)pause
+{
+    [systemTimer interrupt];
+    [eventBus publish:TIMER_PAUSE data:currentTimerContext];
+}
+
+- (void)resume
+{
+    [self start:currentTimerContext];
+}
+
+
 @end

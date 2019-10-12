@@ -29,16 +29,27 @@
 - (void)switchToIdleState
 {
     [statusMenu enableStopTimerItem:false];
+    [statusMenu enablePauseItem:false hidden:false];
+    [statusMenu enableResumeItem:false hidden:true];
     [statusMenu enableStartPomodoroItem:true];
     [statusMenu enableStartShortBreakItem:true];
     [statusMenu enableStartLongBreakItem:true];
     [statusIcon changeIcon:ICON_STATUS_IDLE];
-    [self updateRemainingTime:0 withMode:TYAppUIRemainingTimeModeDefault];
+    [self updateRemainingTime:0 orUseLastTime:false];
+}
+
+- (void)switchToPauseState
+{
+    [statusMenu enablePauseItem:false hidden:true];
+    [statusMenu enableResumeItem:true hidden:false];
+    [statusIcon changeIcon:ICON_STATUS_PAUSE];
 }
 
 - (void)switchToPomodoroState
 {
     [statusMenu enableStopTimerItem:true];
+    [statusMenu enablePauseItem:true hidden:false];
+    [statusMenu enableResumeItem:false hidden:true];
     [statusMenu enableStartPomodoroItem:false];
     [statusMenu enableStartShortBreakItem:true];
     [statusMenu enableStartLongBreakItem:true];
@@ -48,6 +59,8 @@
 - (void)switchToShortBreakState
 {
     [statusMenu enableStopTimerItem:true];
+    [statusMenu enablePauseItem:true hidden:false];
+    [statusMenu enableResumeItem:false hidden:true];
     [statusMenu enableStartPomodoroItem:true];
     [statusMenu enableStartShortBreakItem:false];
     [statusMenu enableStartLongBreakItem:true];
@@ -57,15 +70,17 @@
 - (void)switchToLongBreakState
 {
     [statusMenu enableStopTimerItem:true];
+    [statusMenu enablePauseItem:true hidden:false];
+    [statusMenu enableResumeItem:false hidden:true];
     [statusMenu enableStartPomodoroItem:true];
     [statusMenu enableStartShortBreakItem:true];
     [statusMenu enableStartLongBreakItem:false];
     [statusIcon changeIcon:ICON_STATUS_LONG_BREAK];
 }
 
-- (void)updateRemainingTime:(int)remainingSeconds withMode:(TYAppUIRemainingTimeMode)mode;
+- (void)updateRemainingTime:(int)remainingSeconds orUseLastTime:(BOOL)useLastTime;
 {
-    if (mode == TYAppUIRemainingTimeModeUseLastTime) {
+    if (useLastTime) {
         remainingSeconds = lastKnownTime;
     } else {
         lastKnownTime = remainingSeconds;
@@ -88,7 +103,7 @@
             if(minutes < 1){
                 text = [NSString stringWithFormat:@" %02d s", seconds];
             } else {
-                text = [NSString stringWithFormat:@" %d m", minutes + (mode == TYAppUIRemainingTimeModeStart ? 0:1)];
+                text = [NSString stringWithFormat:@" %d m", minutes + (seconds > 0 ? 1 : 0)];
             }
         } else if (timeFormat == TYAppUIStatusIconTextFormatSeconds) {
             text = [NSString stringWithFormat:@" %02d:%02d", minutes, seconds];
@@ -112,7 +127,7 @@
 - (void)setStatusIconTextFormat:(TYAppUIStatusIconTextFormat)statusIconTextFormat {
     if (_statusIconTextFormat != statusIconTextFormat) {
         _statusIconTextFormat = statusIconTextFormat;
-        [self updateRemainingTime:0 withMode:TYAppUIRemainingTimeModeUseLastTime];
+        [self updateRemainingTime:0 orUseLastTime:true];
     }
 }
 

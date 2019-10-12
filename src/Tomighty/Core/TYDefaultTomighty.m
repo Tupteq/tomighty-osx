@@ -114,6 +114,16 @@
     [timer stop];
 }
 
+- (void)pause
+{
+    [timer pause];
+}
+
+- (void)resume
+{
+    [timer resume];
+}
+
 - (void)setPomodoroCount:(int)newCount
 {
     pomodoroCount = newCount;
