@@ -71,9 +71,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="lAW-RF-ya6" firstAttribute="top" secondItem="r56-uS-b66" secondAttribute="top" constant="20" symbolic="YES" id="PSv-Kp-I5F"/>
-                                        <constraint firstItem="AB6-cq-4zH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r56-uS-b66" secondAttribute="leading" constant="20" symbolic="YES" id="Ui0-W2-CQ2"/>
                                         <constraint firstItem="lAW-RF-ya6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r56-uS-b66" secondAttribute="leading" constant="20" symbolic="YES" id="aGU-4M-5R2"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AB6-cq-4zH" secondAttribute="trailing" constant="20" symbolic="YES" id="mcn-8g-5yt"/>
                                         <constraint firstItem="AB6-cq-4zH" firstAttribute="centerX" secondItem="r56-uS-b66" secondAttribute="centerX" id="oBw-Ub-fTJ"/>
                                         <constraint firstItem="lAW-RF-ya6" firstAttribute="centerX" secondItem="r56-uS-b66" secondAttribute="centerX" id="vs9-tN-FE7"/>
                                         <constraint firstItem="AB6-cq-4zH" firstAttribute="top" secondItem="lAW-RF-ya6" secondAttribute="bottom" constant="8" symbolic="YES" id="y6S-CO-ffV"/>
@@ -258,107 +256,106 @@
                                     <rect key="frame" x="10" y="33" width="347" height="191"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-lu-bRj">
-                                            <rect key="frame" x="53" y="81" width="179" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="175" id="dZm-qd-6Yg"/>
-                                            </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Play tick-tock sound during:" id="biD-2F-1Vz">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <box autoresizesSubviews="NO" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="lBK-YY-ePX">
-                                            <rect key="frame" x="52" y="13" width="242" height="74"/>
-                                            <view key="contentView" id="Xg6-Cb-Sav">
-                                                <rect key="frame" x="3" y="3" width="236" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBk-O2-Hit" userLabel="Top Stack">
+                                            <rect key="frame" x="50" y="120" width="247" height="58"/>
+                                            <subviews>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="UEf-gI-pZ6">
+                                                    <rect key="frame" x="-2" y="42" width="221" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Play sound when the timer starts" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vr7-9F-ryL">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="save_play_sound_when_timer_starts:" target="-2" id="R6Y-Rf-af0"/>
+                                                    </connections>
+                                                </button>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="4gP-n3-o9H">
+                                                    <rect key="frame" x="-2" y="20" width="236" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Play sound when the timer goes off" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1oT-Yg-33A">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="save_play_sound_when_timer_goes_off:" target="-2" id="DmH-Qw-rWX"/>
+                                                    </connections>
+                                                </button>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-52-gcU">
+                                                    <rect key="frame" x="-2" y="-2" width="251" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Show notifications when timers go off" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Bzh-st-EPg">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="save_show_notifications:" target="-2" id="xXF-j5-KHh"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <box autoresizesSubviews="NO" borderType="line" title="Play tick-tock sound during:" translatesAutoresizingMaskIntoConstraints="NO" id="lBK-YY-ePX">
+                                            <rect key="frame" x="77" y="33" width="194" height="74"/>
+                                            <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xg6-Cb-Sav">
+                                                <rect key="frame" x="3" y="3" width="188" height="54"/>
                                                 <subviews>
-                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="n8X-6J-yb1">
-                                                        <rect key="frame" x="16" y="12" width="57" height="18"/>
-                                                        <buttonCell key="cell" type="check" title="Break" bezelStyle="regularSquare" imagePosition="left" inset="2" id="V95-pW-Rx6">
-                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="save_play_ticktock_sound_during_break:" target="-2" id="l3e-JV-lbD"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="XPt-RS-x5J">
-                                                        <rect key="frame" x="16" y="32" width="87" height="18"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="83" id="9GR-ct-lkY"/>
-                                                        </constraints>
-                                                        <buttonCell key="cell" type="check" title="Pomodoro" bezelStyle="regularSquare" imagePosition="left" inset="2" id="xh0-1p-fuX">
-                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <action selector="save_play_ticktock_sound_during_pomodoro:" target="-2" id="qxO-Mb-Id8"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ybe-Mf-IJP" userLabel="Sound Stack">
+                                                        <rect key="frame" x="20" y="10" width="81" height="36"/>
+                                                        <subviews>
+                                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="n8X-6J-yb1">
+                                                                <rect key="frame" x="-2" y="20" width="57" height="18"/>
+                                                                <buttonCell key="cell" type="check" title="Break" bezelStyle="regularSquare" imagePosition="left" inset="2" id="V95-pW-Rx6">
+                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="save_play_ticktock_sound_during_break:" target="-2" id="l3e-JV-lbD"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="XPt-RS-x5J">
+                                                                <rect key="frame" x="-2" y="-2" width="85" height="18"/>
+                                                                <buttonCell key="cell" type="check" title="Pomodoro" bezelStyle="regularSquare" imagePosition="left" inset="2" id="xh0-1p-fuX">
+                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="save_play_ticktock_sound_during_pomodoro:" target="-2" id="qxO-Mb-Id8"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="n8X-6J-yb1" firstAttribute="top" secondItem="XPt-RS-x5J" secondAttribute="bottom" constant="6" symbolic="YES" id="2Mv-tU-DyR"/>
-                                                    <constraint firstItem="XPt-RS-x5J" firstAttribute="leading" secondItem="Xg6-Cb-Sav" secondAttribute="leading" constant="18" id="EIk-ea-AsN"/>
-                                                    <constraint firstAttribute="bottom" secondItem="n8X-6J-yb1" secondAttribute="bottom" constant="14" id="tfd-Cl-Px0"/>
-                                                    <constraint firstItem="XPt-RS-x5J" firstAttribute="leading" secondItem="n8X-6J-yb1" secondAttribute="leading" id="uQ3-IT-ujT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ybe-Mf-IJP" secondAttribute="bottom" constant="10" id="5Ky-PX-Uwq"/>
+                                                    <constraint firstItem="Ybe-Mf-IJP" firstAttribute="leading" secondItem="Xg6-Cb-Sav" secondAttribute="leading" constant="20" symbolic="YES" id="ddC-PV-EU3"/>
                                                 </constraints>
                                             </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="503-Zj-OPP"/>
+                                            </constraints>
+                                            <font key="titleFont" metaFont="system"/>
                                         </box>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="UEf-gI-pZ6">
-                                            <rect key="frame" x="48" y="154" width="227" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="223" id="OBn-h1-2ac"/>
-                                                <constraint firstAttribute="height" constant="14" id="OUQ-u1-yKM"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="check" title="Play sound when the timer starts" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vr7-9F-ryL">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="save_play_sound_when_timer_starts:" target="-2" id="R6Y-Rf-af0"/>
-                                            </connections>
-                                        </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="4gP-n3-o9H">
-                                            <rect key="frame" x="48" y="134" width="244" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="14" id="Zw4-ug-gct"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="check" title="Play sound when the timer goes off" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1oT-Yg-33A">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="save_play_sound_when_timer_goes_off:" target="-2" id="DmH-Qw-rWX"/>
-                                            </connections>
-                                        </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-52-gcU">
-                                            <rect key="frame" x="48" y="114" width="251" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Show notifications when timers go off" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Bzh-st-EPg">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="save_show_notifications:" target="-2" id="xXF-j5-KHh"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4gP-n3-o9H" firstAttribute="top" secondItem="UEf-gI-pZ6" secondAttribute="bottom" constant="6" symbolic="YES" id="7L1-bm-QDu"/>
-                                        <constraint firstItem="ay4-lu-bRj" firstAttribute="leading" secondItem="nvp-HR-2ZP" secondAttribute="leading" constant="55" id="Aki-B0-sj9"/>
-                                        <constraint firstItem="Nlo-52-gcU" firstAttribute="top" secondItem="4gP-n3-o9H" secondAttribute="bottom" constant="6" symbolic="YES" id="CWO-sI-77R"/>
-                                        <constraint firstItem="4gP-n3-o9H" firstAttribute="centerX" secondItem="lBK-YY-ePX" secondAttribute="centerX" constant="-3" id="RB5-85-sGb"/>
-                                        <constraint firstAttribute="bottom" secondItem="lBK-YY-ePX" secondAttribute="bottom" constant="17" id="WT5-IL-6Oq"/>
-                                        <constraint firstItem="Nlo-52-gcU" firstAttribute="leading" secondItem="4gP-n3-o9H" secondAttribute="leading" id="mlr-nj-kYn"/>
-                                        <constraint firstItem="ay4-lu-bRj" firstAttribute="top" secondItem="4gP-n3-o9H" secondAttribute="bottom" constant="39" id="n8B-lc-cM4"/>
-                                        <constraint firstItem="lBK-YY-ePX" firstAttribute="top" secondItem="4gP-n3-o9H" secondAttribute="bottom" constant="49" id="nbp-3A-EB7"/>
-                                        <constraint firstAttribute="trailing" secondItem="4gP-n3-o9H" secondAttribute="trailing" constant="57" id="nfy-xv-3et"/>
-                                        <constraint firstItem="UEf-gI-pZ6" firstAttribute="top" secondItem="nvp-HR-2ZP" secondAttribute="top" constant="21" id="nlj-o0-8vn"/>
-                                        <constraint firstItem="lBK-YY-ePX" firstAttribute="leading" secondItem="nvp-HR-2ZP" secondAttribute="leading" constant="55" id="w3w-CN-Q28"/>
-                                        <constraint firstItem="UEf-gI-pZ6" firstAttribute="leading" secondItem="nvp-HR-2ZP" secondAttribute="leading" constant="50" id="wd0-h4-rjF"/>
-                                        <constraint firstItem="UEf-gI-pZ6" firstAttribute="leading" secondItem="4gP-n3-o9H" secondAttribute="leading" id="wfo-3k-5rP"/>
+                                        <constraint firstItem="mBk-O2-Hit" firstAttribute="centerX" secondItem="nvp-HR-2ZP" secondAttribute="centerX" id="XFb-sS-GPf"/>
+                                        <constraint firstItem="lBK-YY-ePX" firstAttribute="top" secondItem="mBk-O2-Hit" secondAttribute="bottom" constant="13" id="dQ6-Ru-Mg4"/>
+                                        <constraint firstItem="lBK-YY-ePX" firstAttribute="centerX" secondItem="nvp-HR-2ZP" secondAttribute="centerX" id="ikN-UW-MPe"/>
+                                        <constraint firstItem="mBk-O2-Hit" firstAttribute="top" secondItem="nvp-HR-2ZP" secondAttribute="top" constant="13" id="oke-Do-w7x"/>
                                     </constraints>
                                 </view>
                             </tabViewItem>
