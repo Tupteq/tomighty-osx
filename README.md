@@ -14,6 +14,7 @@ Changes made in this fork:
 * Updated XCode project.
 * Added pause/resume functionality (functional, but work is still in progress).
 * Minor code simplifications (side effect of pause/resume feature).
+* Redesigned preferences views to get rid of warnings.
 
 Architecture
 ============

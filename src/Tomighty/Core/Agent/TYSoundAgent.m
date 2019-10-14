@@ -29,39 +29,39 @@
 {
     [eventBus subscribeTo:TIMER_START subscriber:^(id timerContext)
     {
-        if([preferences getInt:PREF_PLAY_SOUND_WHEN_TIMER_STARTS])
+        if([self->preferences getInt:PREF_PLAY_SOUND_WHEN_TIMER_STARTS])
         {
-            [soundPlayer play:SOUND_TIMER_START];
+            [self->soundPlayer play:SOUND_TIMER_START];
         }
     }];
     
     [eventBus subscribeTo:TIMER_STOP subscriber:^(id eventData) {
-        [soundPlayer stopCurrentLoop];
+        [self->soundPlayer stopCurrentLoop];
     }];
     
     [eventBus subscribeTo:POMODORO_START subscriber:^(id timerContext)
     {
-        [soundPlayer stopCurrentLoop];
-        if([preferences getInt:PREF_PLAY_TICKTOCK_SOUND_DURING_POMODORO])
+        [self->soundPlayer stopCurrentLoop];
+        if([self->preferences getInt:PREF_PLAY_TICKTOCK_SOUND_DURING_POMODORO])
         {
-            [soundPlayer loop:SOUND_TIMER_TICK];
+            [self->soundPlayer loop:SOUND_TIMER_TICK];
         }
     }];
     
     [eventBus subscribeTo:BREAK_START subscriber:^(id timerContext)
     {
-        [soundPlayer stopCurrentLoop];
-        if([preferences getInt:PREF_PLAY_TICKTOCK_SOUND_DURING_BREAK])
+        [self->soundPlayer stopCurrentLoop];
+        if([self->preferences getInt:PREF_PLAY_TICKTOCK_SOUND_DURING_BREAK])
         {
-            [soundPlayer loop:SOUND_TIMER_TICK];
+            [self->soundPlayer loop:SOUND_TIMER_TICK];
         }
     }];
     
     [eventBus subscribeTo:TIMER_GOES_OFF subscriber:^(id timerContext)
     {
-        if([preferences getInt:PREF_PLAY_SOUND_WHEN_TIMER_GOES_OFF])
+        if([self->preferences getInt:PREF_PLAY_SOUND_WHEN_TIMER_GOES_OFF])
         {
-            [soundPlayer play:SOUND_TIMER_GOES_OFF];
+            [self->soundPlayer play:SOUND_TIMER_GOES_OFF];
         }
     }];
 }

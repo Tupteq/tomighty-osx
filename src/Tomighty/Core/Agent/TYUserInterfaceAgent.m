@@ -40,50 +40,50 @@
 - (void)updateAppUiInResponseToEventsFrom:(id <TYEventBus>)eventBus
 {
     [eventBus subscribeTo:APP_INIT subscriber:^(id eventData) {
-        [ui switchToIdleState];
-        [ui updateRemainingTime:0 orUseLastTime:true];
-        [ui setStatusIconTextFormat:(TYAppUIStatusIconTextFormat) [preferences getInt:PREF_STATUS_ICON_TIME_FORMAT]];
-        [ui updatePomodoroCount:0];
+        [self->ui switchToIdleState];
+        [self->ui updateRemainingTime:0 orUseLastTime:true];
+        [self->ui setStatusIconTextFormat:(TYAppUIStatusIconTextFormat) [self->preferences getInt:PREF_STATUS_ICON_TIME_FORMAT]];
+        [self->ui updatePomodoroCount:0];
     }];
 
     [eventBus subscribeTo:POMODORO_START subscriber:^(id eventData) {
-        [ui switchToPomodoroState];
+        [self->ui switchToPomodoroState];
         [self dispatchNewNotification:@"Pomodoro started"];
     }];
     
     [eventBus subscribeTo:TIMER_STOP subscriber:^(id eventData) {
-        [ui switchToIdleState];
+        [self->ui switchToIdleState];
     }];
 
     [eventBus subscribeTo:TIMER_PAUSE subscriber:^(id eventData) {
-        [ui switchToPauseState];
+        [self->ui switchToPauseState];
     }];
 
     [eventBus subscribeTo:SHORT_BREAK_START subscriber:^(id eventData) {
-        [ui switchToShortBreakState];
+        [self->ui switchToShortBreakState];
         [self dispatchNewNotification:@"Short break started"];
     }];
     
     [eventBus subscribeTo:LONG_BREAK_START subscriber:^(id eventData) {
-        [ui switchToLongBreakState];
+        [self->ui switchToLongBreakState];
         [self dispatchNewNotification:@"Long break started"];
     }];
     
     [eventBus subscribeTo:TIMER_TICK subscriber:^(id <TYTimerContext> timerContext) {
-        [ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
+        [self->ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
     }];
 
     [eventBus subscribeTo:TIMER_START subscriber:^(id <TYTimerContext> timerContext) {
-        [ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
+        [self->ui updateRemainingTime:[timerContext getRemainingSeconds] orUseLastTime:false];
     }];
     
     [eventBus subscribeTo:POMODORO_COUNT_CHANGE subscriber:^(NSNumber *pomodoroCount) {
-        [ui updatePomodoroCount:[pomodoroCount intValue]];
+        [self->ui updatePomodoroCount:[pomodoroCount intValue]];
     }];
 
     [eventBus subscribeTo:PREFERENCE_CHANGE subscriber:^(NSString *preferenceKey) {
         if ([preferenceKey isEqualToString:PREF_STATUS_ICON_TIME_FORMAT]) {
-            [ui setStatusIconTextFormat:(TYAppUIStatusIconTextFormat) [preferences getInt:PREF_STATUS_ICON_TIME_FORMAT]];
+            [self->ui setStatusIconTextFormat:(TYAppUIStatusIconTextFormat) [self->preferences getInt:PREF_STATUS_ICON_TIME_FORMAT]];
         }
     }];
 }

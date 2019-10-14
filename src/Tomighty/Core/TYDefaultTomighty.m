@@ -45,12 +45,12 @@
         }];
         
         [eventBus subscribeTo:READY_FOR_NEXT_TIMER subscriber:^(id eventData) {
-            if ([preferences getInt:PREF_CONTINUOUS_MODE] == YES) {
+            if ([self->preferences getInt:PREF_CONTINUOUS_MODE] == YES) {
                 //start the next timer, depending on the previous context
                 id <TYTimerContext> context = eventData;
                 switch ([context getContextType]) {
                     case POMODORO:
-                        if (pomodoroCount < pomodoroCycle) {
+                        if (self->pomodoroCount < self->pomodoroCycle) {
                             [self startShortBreak];
                         }
                         else {

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TYSystemTimerTrigger)();
+typedef void (^TYSystemTimerTrigger)(void);
 
 @protocol TYSystemTimer <NSObject>
 

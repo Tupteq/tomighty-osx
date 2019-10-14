@@ -42,7 +42,7 @@
         
         if([context getRemainingSeconds] > 0)
         {
-            [eventBus publish:TIMER_TICK data:context];
+            [self->eventBus publish:TIMER_TICK data:context];
         }
         else
         {
