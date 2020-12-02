@@ -20,7 +20,7 @@ static NSString* const MVTCommandKeyString = @"⌘";
 
 #pragma mark Init
 
-+ (id)hotkeyWithCode:(CGKeyCode)code flags:(UInt32)flags
++ (id)hotkeyWithCode:(CGKeyCode)code flags:(enum NSEventModifierFlags)flags
 {
     TYHotkey *key = [[TYHotkey alloc] init];
     if(key) {
@@ -175,7 +175,7 @@ static NSString* const MVTCommandKeyString = @"⌘";
     
 }
 
-- (void)_withCodeAndFlags:(CGKeyCode)code flags:(UInt32)flags
+- (void)_withCodeAndFlags:(CGKeyCode)code flags:(enum NSEventModifierFlags)flags
 {
     _code = code;
     _flags = flags;

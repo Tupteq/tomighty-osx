@@ -32,11 +32,11 @@
 @property (readonly) BOOL cmd;
 @property (readonly) BOOL valid;
 @property (nonatomic, assign) SInt32 code;
-@property (nonatomic, assign) UInt32 flags;
+@property (nonatomic, assign) enum NSEventModifierFlags flags;
 @property (readonly) UInt32 carbonFlags;
 @property (nonatomic, strong) NSString *string;
 
-+ (id)hotkeyWithCode:(CGKeyCode)code flags:(UInt32)flags;
++ (id)hotkeyWithCode:(CGKeyCode)code flags:(enum NSEventModifierFlags)flags;
 + (id)hotkeyWithString:(NSString*)string;
 
 - (NSMutableAttributedString*)mutableAttributedString:(NSFont*)font
