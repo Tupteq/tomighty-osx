@@ -53,13 +53,13 @@ static NSString* const MVTCommandKeyString = @"⌘";
     for(int i = 0; i < string.length; i++) {
         NSString *s = [string substringWithRange:NSMakeRange(i, 1)];
          if([s isEqualToString:MVTControlKeyString])
-            _flags |= NSControlKeyMask;
+            _flags |= NSEventModifierFlagControl;
         else if([s isEqualToString:MVTAlternativeKeyString])
-            _flags |= NSAlternateKeyMask;
+            _flags |= NSEventModifierFlagOption;
         else if([s isEqualToString:MVTShiftKeyString])
-            _flags |= NSShiftKeyMask;
+            _flags |= NSEventModifierFlagShift;
         else if([s isEqualToString:MVTCommandKeyString])
-            _flags |= NSCommandKeyMask;
+            _flags |= NSEventModifierFlagCommand;
         else {
             NSString *s = [string
                            substringWithRange:NSMakeRange(i, string.length - i)];
@@ -107,22 +107,22 @@ static NSString* const MVTCommandKeyString = @"⌘";
 
 - (BOOL)ctrl
 {
-    return _flags & NSControlKeyMask ? TRUE : FALSE;
+    return _flags & NSEventModifierFlagControl ? TRUE : FALSE;
 }
 
 - (BOOL)alt
 {
-    return _flags & NSAlternateKeyMask ? TRUE : FALSE;
+    return _flags & NSEventModifierFlagOption ? TRUE : FALSE;
 }
 
 - (BOOL)shift
 {
-    return _flags & NSShiftKeyMask ? TRUE : FALSE;
+    return _flags & NSEventModifierFlagShift ? TRUE : FALSE;
 }
 
 - (BOOL)cmd
 {
-    return _flags & NSCommandKeyMask ? TRUE : FALSE;
+    return _flags & NSEventModifierFlagCommand ? TRUE : FALSE;
 }
 
 - (BOOL)valid
