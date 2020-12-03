@@ -65,13 +65,14 @@
 
 - (void)pause
 {
-    [systemTimer interrupt];
+    [systemTimer suspend];
     [eventBus publish:TIMER_PAUSE data:currentTimerContext];
 }
 
 - (void)resume
 {
-    [self start:currentTimerContext];
+    [systemTimer resume];
+    [eventBus publish:TIMER_RESUME data:currentTimerContext];
 }
 
 

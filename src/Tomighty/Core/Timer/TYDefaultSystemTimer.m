@@ -11,6 +11,7 @@
 {
     NSTimer *timer;
     TYSystemTimerTrigger currentTrigger;
+    BOOL suspended;
 }
 
 - (void)triggerRepeatedly:(TYSystemTimerTrigger)trigger intervalInSeconds:(int)seconds
@@ -38,7 +39,18 @@
 
 - (void)tick:(NSTimer *)aTimer
 {
-    currentTrigger();
+    if(!suspended)
+        currentTrigger();
+}
+
+- (void)suspend
+{
+    suspended = true;
+}
+
+- (void)resume
+{
+    suspended = false;
 }
 
 @end

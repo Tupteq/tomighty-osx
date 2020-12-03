@@ -59,6 +59,10 @@
         [self->ui switchToPauseState];
     }];
 
+    [eventBus subscribeTo:TIMER_RESUME subscriber:^(id eventData) {
+        [self->ui switchToPomodoroState];
+    }];
+
     [eventBus subscribeTo:SHORT_BREAK_START subscriber:^(id eventData) {
         [self->ui switchToShortBreakState];
         [self dispatchNewNotification:@"Short break started"];
